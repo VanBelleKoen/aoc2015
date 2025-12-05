@@ -1,0 +1,16 @@
+[package]
+name = "aoc2015"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+reqwest = { version = "0.12", features = ["blocking", "cookies"] }
+regex = "1.10"
+itertools = "0.13"
+rayon = "1.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
