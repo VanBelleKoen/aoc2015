@@ -53,6 +53,6 @@ mod tests {
 
     #[test]
     fn test_part2() {
-        let solution = Day04;
+        // let solution = Day04;
     }
 }
