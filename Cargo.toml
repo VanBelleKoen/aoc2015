@@ -9,6 +9,7 @@ reqwest = { version = "0.12", features = ["blocking", "cookies"] }
 regex = "1.10"
 itertools = "0.13"
 rayon = "1.10"
+md5 = "0.8.0"
 
 [profile.release]
 opt-level = 3
