@@ -52,17 +52,14 @@ fn parse_input(input: &str) -> HashMap<String, Gate> {
 }
 
 fn evaluate(wire: &str, circuit: &HashMap<String, Gate>, cache: &mut HashMap<String, u16>) -> u16 {
-    // Check if it's a direct value
     if let Ok(value) = wire.parse::<u16>() {
         return value;
     }
 
-    // Check cache
     if let Some(&value) = cache.get(wire) {
         return value;
     }
 
-    // Evaluate the gate
     let gate = circuit.get(wire).unwrap().clone();
     let result = match gate {
         Gate::Value(v) => v,
@@ -87,15 +84,12 @@ impl Solution for Day07 {
     }
 
     fn part2(&self, input: &str) -> String {
-        // First, get the signal from wire 'a' in part 1
         let mut circuit = parse_input(input);
         let mut cache = HashMap::new();
         let a_signal = evaluate("a", &circuit, &mut cache);
 
-        // Override wire 'b' with the signal from 'a'
         circuit.insert("b".to_string(), Gate::Value(a_signal));
 
-        // Reset the cache and re-evaluate
         cache.clear();
         let result = evaluate("a", &circuit, &mut cache);
         result.to_string()
