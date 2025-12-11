@@ -32,6 +32,8 @@ fn get_solution(day: u8) -> Option<Box<dyn Solution>> {
         3 => Some(Box::new(days::day03::Day03)),
         4 => Some(Box::new(days::day04::Day04)),
         5 => Some(Box::new(days::day05::Day05)),
+        6 => Some(Box::new(days::day06::Day06)),
+        7 => Some(Box::new(days::day07::Day07)),
         _ => None,
     }
 }
